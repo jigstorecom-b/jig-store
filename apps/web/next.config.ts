@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     // Still get type errors in the editor; just don't block production builds
     ignoreBuildErrors: true,
   },
+  transpilePackages: ["@engine/ui"],
 };
 
 export default withPayload(nextConfig);
