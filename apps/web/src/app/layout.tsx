@@ -30,6 +30,8 @@ export const metadata: Metadata = {
 };
 
 import { SiteHeader } from "@/components/SiteHeader";
+import { GlobalUI } from "@/components/GlobalUI";
+import { CartProvider } from "@/providers/CartProvider";
 
 export default function RootLayout({
   children,
