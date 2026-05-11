@@ -35,6 +35,7 @@ Last updated: 2026-05-11
 - [x] Webhook for order confirmation email (implemented)
 
 ### Launch
+- [x] Initialized and pushed to GitHub
 - [ ] Deployed to Vercel
 - [ ] Domain connected
 - [ ] Paystack live mode enabled
