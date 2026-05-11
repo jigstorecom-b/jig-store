@@ -1,0 +1,10 @@
+{
+  "name": "@engine/auth",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "dependencies": {
+    "@supabase/supabase-js": "latest",
+    "@supabase/ssr": "latest",
+    "next": "15.1.7"
+  }
+}

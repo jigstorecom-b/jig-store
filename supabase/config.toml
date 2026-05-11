@@ -1,0 +1,21 @@
+project_id = "business-engine"
+
+[api]
+port = 54321
+external_url = "http://localhost:54321"
+
+[db]
+port = 54322
+shadow_port = 54320
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://*", "http://localhost:3000"]
+jwt_expiry = 3600
+enable_signup = true
+
+[storage]
+enabled = true
+
+[inbucket]
+port = 54324

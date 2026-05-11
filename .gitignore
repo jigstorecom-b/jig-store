@@ -1,0 +1,50 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+build
+
+# misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Turborepo
+.turbo
+
+# Payload CMS / Database
+payload-types.ts
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor config
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Payload generated files
+apps/web/payload-types.ts   # auto-generated, not source of truth
+apps/web/media/             # local media uploads during dev
+docs

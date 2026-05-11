@@ -1,0 +1,141 @@
+Here's how Jig's UI/UX should look and feel — written so a TypeScript dev can build straight from this.
+
+---
+
+## Overall Philosophy
+
+**Warm minimalism with editorial confidence.** Every screen should feel like it was designed by someone who cares about commerce *and* craft. Not a dashboard. Not a generic SaaS. A place where buying feels considered and selling feels professional.
+
+The rule: **subtract until it breaks, then add one thing back.**
+
+---
+
+## Layout System
+
+**12-column grid, 1280px max-width, 24px gutters on mobile / 32px on desktop.** Most content lives in 8 of the 12 columns, centred. Product grids break to full 12. Never full-bleed text.
+
+Spacing scale is generous — more whitespace than feels comfortable at first. That restraint *is* the brand.
+
+---
+
+## Homepage
+
+The hero is **not a carousel.** It's a single full-width panel — Chalk background, large Syne display text left-aligned, one Ember CTA button, and either a product image or a tight product grid on the right half. No sliders, no autoplay, no stock photos.
+
+Below the hero: a **horizontal category strip** — 5–7 category pills, scrollable on mobile, static on desktop. Ash border, Linen background, DM Sans text. Clicking filters the product grid below it instantly (no page reload).
+
+The **product grid** is 4 columns on desktop, 2 on mobile. Cards have a white surface on the Chalk background — subtle shadow on hover, image scales 103%. Price in JetBrains Mono. Product name in Syne. No star ratings in Phase 1.
+
+Footer is minimal — two columns max. Logo left, links right. No newsletter signup in Phase 1.
+
+---
+
+## Product Listing Page
+
+Same grid as homepage. Filter sidebar on desktop — fixed left, 240px wide — with collapsible sections for category, price range, availability. On mobile the filters live in a bottom sheet that slides up, not a sidebar.
+
+Sorting lives in a small dropdown top-right of the grid: "Newest / Price: Low to High / Price: High to Low." Styled as a ghost button that opens a small floating menu — no native `<select>`.
+
+Empty state: centred, Syne heading "Nothing here yet.", DM Sans subtext, one Ember ghost button back to all products.
+
+---
+
+## Product Detail Page
+
+**Two-column layout.** Left: image gallery — one large image, 3–4 thumbnail squares below it. Clicking a thumbnail swaps the main image with a 150ms crossfade. No lightbox in Phase 1.
+
+Right column: product name in Syne H1, price in JetBrains Mono (larger than usual — this is a decision point), short description in DM Sans, variant selectors (size/colour) as pill buttons not dropdowns, quantity stepper, then the full-width Ember "Add to Cart" button.
+
+Below the fold: a simple product description section and a "You might also like" row of 4 cards.
+
+**Sticky add-to-cart bar** appears on mobile when the user scrolls past the original button — fixed to bottom of viewport, Void background, white text, Ember button.
+
+---
+
+## Cart
+
+**Slide-out drawer from the right.** 400px wide on desktop, full-width on mobile. Opens without a page transition — instant overlay with a 200ms ease-in from right. Background dims to 40% black overlay.
+
+Inside: list of cart items (image thumbnail, name, variant, quantity stepper, remove icon), subtotal in JetBrains Mono at the bottom, then a full-width Ember "Checkout" button. No upsells or cross-sells in Phase 1.
+
+The cart icon in the nav shows a small Ember dot (not a number badge) when items are present. Number appears on hover/focus only — cleaner at rest.
+
+---
+
+## Checkout
+
+**Single page, not multi-step.** Two columns — left is the form, right is the order summary (sticky on desktop).
+
+Form sections are visually grouped with a light Ash border-top divider and a small Syne label above each group: "Contact", "Delivery", "Payment." Inputs use the Linen background, Ash border, Ember focus ring.
+
+Stripe Elements drop into the Payment section — styled to match Jig's inputs exactly using Stripe's `appearance` API (Linen background, Void text, Ember focus).
+
+The submit button reads "Pay ₦XX,000.00" — the exact amount, always. Not "Place Order." Not "Continue." The number updates in real time as delivery options change.
+
+Error states are inline — red text directly below the field, never a banner at the top.
+
+---
+
+## Order Confirmation
+
+Clean, centred, single column. Small Ember checkmark icon at the top (SVG, not an emoji). Syne H1: "Order confirmed." DM Sans body with order number in JetBrains Mono and a one-line summary. One ghost button: "Continue Shopping."
+
+No confetti. No animation. Calm confidence — the purchase already happened.
+
+---
+
+## Merchant Dashboard
+
+**Entirely separate layout from the storefront.** Dark surface — Void (`#0D0D0D`) sidebar, Chalk main area. Left sidebar: Jig logo, nav items (Orders, Products, Media, Categories, Settings), user avatar at the bottom.
+
+**Orders table:** sortable columns, status badges (Pending / Paid / Fulfilled / Cancelled) in the appropriate utility colours. Row click opens an order detail panel — slide-in from right, same drawer pattern as the cart. No separate order detail page.
+
+**Products list:** table with image thumbnail, name, price, stock count, status toggle (published/draft). "New Product" button top-right opens a full-page form, not a modal.
+
+**No charts or analytics in Phase 1.** Just the numbers that matter: total orders, revenue this month, low stock items — three stat cards at the top of the dashboard in Linen surfaces.
+
+---
+
+## Navigation
+
+**Storefront nav:** fixed top, Chalk background, Jig logo left, category links centre (hidden on mobile), cart icon + account icon right. On scroll past 60px, nav gets a 1px Ash bottom border and very subtle backdrop blur. No mega menu in Phase 1.
+
+Mobile nav is a **full-screen overlay** — Void background, large Syne links in white, Ember accent on the active item. Opens from a hamburger icon (two lines, not three — cleaner).
+
+---
+
+## Micro-interactions
+
+- Button hover: background shifts 10% darker, 150ms ease-out. No scale.
+- Input focus: border shifts from Ash to Ember, 150ms ease.
+- Card hover: shadow lifts (`0 6px 24px rgba(0,0,0,0.08)`), image scales 103%, 200ms ease.
+- Drawer open: 200ms ease-out from right. Overlay fades in simultaneously.
+- Skeleton loaders on product grids — Linen base, animated shimmer in Ash. No spinners anywhere.
+- Toast notifications (item added to cart, error, success) — bottom-left, Void background, white DM Sans text, auto-dismiss at 3 seconds. No X button needed.
+
+---
+
+## Mobile-first Rules
+
+- Minimum tap target: 44px height on all interactive elements.
+- Bottom sheet pattern for filters and secondary actions — never modal dialogs on mobile.
+- Sticky bottom bar on product detail.
+- Cart is full-width on mobile.
+- Font sizes never go below 14px.
+- No hover-dependent interactions — everything accessible by tap.
+
+---
+
+## What to Avoid Building
+
+- No mega menu
+- No carousels or sliders
+- No modal dialogs (use drawers and bottom sheets instead)
+- No star ratings Phase 1
+- No inline video
+- No cookie banner until legally required
+- No chat widget
+- No page loading spinners — skeleton screens only
+
+---
+

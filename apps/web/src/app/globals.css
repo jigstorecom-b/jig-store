@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Core palette — Warm minimalism */
+    --primary:            0 0% 5%;           /* Void  #0D0D0D */
+    --primary-foreground: 48 20% 95%;        /* Chalk #F5F4F0 */
+
+    --accent:             16 82% 51%;        /* Ember #E8501A */
+    --accent-foreground:  0 0% 100%;         /* White on Ember */
+    --accent-tint:        16 85% 95%;        /* Ember Tint #FDEEE8 */
+
+    --background:         48 20% 95%;        /* Chalk #F5F4F0 */
+    --foreground:         0 0% 5%;           /* Void  #0D0D0D */
+
+    --muted:              47 12% 92%;        /* Linen #EDECE8 */
+    --muted-foreground:   43 5% 43%;         /* Stone #737068 */
+
+    --border:             47 12% 85%;        /* Ash   #DDDBD4 */
+    --input:              47 12% 92%;        /* Linen — input backgrounds */
+    --ring:               16 82% 51%;        /* Ember — focus rings */
+
+    /* Utility colours */
+    --success:            153 40% 30%;       /* Sage    #2D6A4F */
+    --warning:            32 92% 44%;        /* Amber   #D97706 */
+    --destructive:        4 63% 46%;         /* Crimson #C0392B */
+
+    --radius:             0.375rem;
+  }
+
+  /* Merchant Dashboard — Void-based dark surface */
+  .dark {
+    --background:         0 0% 5%;           /* Void  #0D0D0D */
+    --foreground:         48 20% 95%;        /* Chalk #F5F4F0 */
+
+    --primary:            48 20% 95%;        /* Chalk */
+    --primary-foreground: 0 0% 5%;           /* Void  */
+
+    --accent:             16 82% 51%;        /* Ember — stays consistent */
+    --accent-foreground:  0 0% 100%;
+
+    --muted:              0 0% 12%;          /* Dark surface */
+    --muted-foreground:   43 5% 65%;         /* Lighter Stone */
+
+    --border:             0 0% 18%;          /* Subtle dark border */
+    --input:              0 0% 12%;
+    --ring:               16 82% 51%;        /* Ember */
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@theme {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
