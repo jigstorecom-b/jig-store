@@ -79,9 +79,12 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button variant="accent" size="lg" className="h-16 text-lg font-bold">
+                {/* <Button variant="accent" size="lg" className="h-16 text-lg font-bold">
                   Send Message
-                </Button>
+                </Button> */}
+                <button type="submit" className="h-16 text-lg font-bold bg-accent text-white rounded-sm px-8 hover:opacity-90 transition-opacity">
+                  Send Message
+                </button>
               </form>
             </div>
 
