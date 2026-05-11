@@ -1,4 +1,4 @@
-'use client' // Wait, actions should be server-side, but they can be in a file with 'use server'
+'use server'
 
 import { getPayload } from 'payload'
 import config from '@payload-config'
