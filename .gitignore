@@ -48,3 +48,4 @@ pnpm-debug.log*
 apps/web/payload-types.ts   # auto-generated, not source of truth
 apps/web/media/             # local media uploads during dev
 docs
+
