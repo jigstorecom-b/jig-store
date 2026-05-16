@@ -62,21 +62,6 @@ export async function getProduct(slug: string) {
   return result.docs[0] ?? null
 }
 
-// Fetch published blog posts
-export async function getBlogPosts() {
-  const payload = await getPayload({ config })
-
-  const result = await payload.find({
-    collection: 'blog-posts',
-    where: {
-      status: { equals: 'published' }
-    },
-    sort: '-publishedDate',
-  })
-
-  return result.docs
-}
-
 // Fetch all categories
 export async function getCategories() {
   const payload = await getPayload({ config })
@@ -84,33 +69,6 @@ export async function getCategories() {
   const result = await payload.find({
     collection: 'categories',
     sort: 'name',
-  })
-
-  return result.docs
-}
-
-// Fetch featured services
-export async function getServices() {
-  const payload = await getPayload({ config })
-
-  const result = await payload.find({
-    collection: 'services',
-    sort: 'order',
-  })
-
-  return result.docs
-}
-
-// Fetch upcoming webinars
-export async function getWebinars() {
-  const payload = await getPayload({ config })
-
-  const result = await payload.find({
-    collection: 'webinars',
-    where: {
-      status: { equals: 'upcoming' }
-    },
-    sort: 'date',
   })
 
   return result.docs
@@ -131,3 +89,4 @@ export async function getPage(slug: string) {
 
   return result.docs[0] ?? null
 }
+

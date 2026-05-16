@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "../../packages/ui/src/**/*.{ts,tsx}";
+
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -73,6 +75,7 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-tint: hsl(var(--accent-tint));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-border: hsl(var(--border));
@@ -85,5 +88,16 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* Layout */
+  --max-width-content: 1280px;
+
+  /* Shadows */
+  --shadow-card-hover: 0 6px 24px rgba(0,0,0,0.08);
+
+  /* Transitions */
+  --transition-duration-150: 150ms;
+  --transition-duration-200: 200ms;
 }
+
 

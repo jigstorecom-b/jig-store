@@ -1,5 +1,9 @@
 {
   "name": "@engine/config",
   "version": "0.0.1",
-  "main": "index.ts"
+  "main": "index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./brand": "./src/brand.ts"
+  }
 }

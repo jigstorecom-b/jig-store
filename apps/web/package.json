@@ -12,17 +12,17 @@
     "next": "15.4.11",
     "react": "19.0.1",
     "react-dom": "19.0.1",
-    "payload": "latest",
-    "@payloadcms/next": "latest",
-    "@payloadcms/richtext-lexical": "latest",
-    "@payloadcms/db-postgres": "latest",
-    "@supabase/supabase-js": "latest",
-    "@supabase/ssr": "latest",
+    "payload": "3.84.1",
+    "@payloadcms/next": "3.84.1",
+    "@payloadcms/richtext-lexical": "3.84.1",
+    "@payloadcms/db-postgres": "3.84.1",
+    "@supabase/supabase-js": "2.105.4",
+    "@supabase/ssr": "0.10.3",
     "pino": "^9",
     "pino-pretty": "^11",
     "pg": "^8.11.0",
     "graphql": "^16.8.0",
-    "@payloadcms/storage-s3": "latest",
+    "@payloadcms/storage-s3": "3.84.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0",
     "lucide-react": "^0.400.0",
@@ -44,3 +44,4 @@
     "typescript": "^5"
   }
 }
+
