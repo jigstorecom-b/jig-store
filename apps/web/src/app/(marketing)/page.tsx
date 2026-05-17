@@ -1,7 +1,17 @@
 import { getPage, getProducts, getCategories } from '@/lib/payload'
-import { Hero, CategoryStrip, ProductCard } from '@engine/ui'
+import { Hero, CategoryStrip, ProductCard } from '@engine/ui/client'
 
 export default async function HomePage() {
+  // Guard: skip DB call during build if no DB URI is available on Vercel yet
+  if (!process.env.DATABASE_URI) {
+    return (
+      <main className="flex flex-col min-h-screen bg-background py-20 px-6 text-center">
+        <h1 className="text-3xl font-bold">Jig Storefront</h1>
+        <p className="mt-4 text-muted-foreground">Store is currently configuring its database connection...</p>
+      </main>
+    )
+  }
+
   // Fetch data in parallel for performance
   const [page, products, categories] = await Promise.all([
     getPage('home'),

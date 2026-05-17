@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     // Still get type errors in the editor; just don't block production builds
     ignoreBuildErrors: true,
   },
-  transpilePackages: ["@engine/ui", "lucide-react"],
+  transpilePackages: ["@engine/ui", "@engine/auth", "@engine/config", "@engine/database", "lucide-react"],
 };
 
 export default withPayload(nextConfig);
